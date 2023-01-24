@@ -1,0 +1,21 @@
+class Solution { 
+    List<Integer> l = new ArrayList<Integer>();
+    public List<Integer> postorderTraversal(TreeNode root) { 
+        if(root==null){
+            return l;
+        }
+        Traversal(root);
+       
+        return l;
+        
+    } 
+    public void Traversal(TreeNode root){
+        if(root==null){
+            return;
+        } 
+        Traversal(root.left);
+        Traversal(root.right); 
+        l.add(root.val);
+    }
+        
+}
