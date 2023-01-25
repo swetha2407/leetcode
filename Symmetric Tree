@@ -1,0 +1,26 @@
+class Solution { 
+    public boolean traversal(TreeNode root1,TreeNode root2){
+        if(root1==null && root2==null){
+            return true;
+        } 
+        if((root1==null && root2!=null) || (root1!=null && root2==null)){
+            return false;
+        } 
+        if(root1.val!=root2.val){
+            return false;
+        }
+        boolean left = traversal(root1.left,root2.right);
+        if(left==false){
+            return false;
+        }
+        boolean right = traversal(root1.right,root2.left);
+        if(right==false){
+            return false;
+        }
+        return left && right;
+    }
+    public boolean isSymmetric(TreeNode root) { 
+        boolean res = traversal(root,root);
+        return res;
+    }
+}
