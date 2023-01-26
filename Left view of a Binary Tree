@@ -1,0 +1,20 @@
+public class Solution 
+{
+    public static ArrayList<Integer> getLeftView(TreeNode<Integer> root) 
+    {
+        //    Write your code here. 
+        ArrayList<Integer> l = new ArrayList<Integer>();
+        leftview(root,0,l);
+        return l;
+    } 
+    public static void leftview(TreeNode<Integer>curr,int level,ArrayList<Integer>l){
+        if(curr==null){
+            return;
+        } 
+        if(level==l.size()){
+            l.add(curr.data);
+        } 
+        leftview(curr.left, level+1, l);
+        leftview(curr.right, level+1, l);
+    }
+}
