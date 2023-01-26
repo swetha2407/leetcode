@@ -1,0 +1,23 @@
+public class Solution {
+
+  public static ArrayList<Integer> getLevelOrder(BinaryTreeNode root) {
+    //Your code goes here 
+	ArrayList<Integer> res = new ArrayList<Integer>();
+	Queue<BinaryTreeNode> q = new LinkedList<BinaryTreeNode>();
+	if(root==null){
+		return res;
+	}
+	q.add(root);
+	while(!q.isEmpty()){
+		if(q.peek().left!=null){
+			q.add(q.peek().left);
+		}
+		if(q.peek().right!=null){
+			q.add(q.peek().right);
+		} 
+		res.add(q.poll().val);
+	} 
+	return res;
+  }
+
+}
