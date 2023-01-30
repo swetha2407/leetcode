@@ -1,0 +1,23 @@
+public class Solution {
+
+    public  static int findCeil(TreeNode<Integer> node, int x) {
+
+        // Write your code here 
+        int X = -1;
+        while(node!=null){
+            if(node.data==x){
+                return node.data;
+            }
+            if(node.data<x){
+                node=node.right;
+            }
+            else{
+                X = node.data;
+                node=node.left;
+            }
+
+        }
+        return X;
+
+    }
+}
