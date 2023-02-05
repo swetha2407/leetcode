@@ -1,0 +1,25 @@
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        if(root==null){
+            return false;
+        }
+        Set<Integer> set = new HashSet<Integer>();
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty()){
+            if(q.peek()!=null){
+                TreeNode node = q.poll();
+                if(set.contains(k-node.val)){
+                    return true;
+                }
+                set.add(node.val);
+                q.add(node.right);
+                q.add(node.left);
+            }
+            else{
+                q.remove();
+            }
+        }
+        return false;
+    }
+}
